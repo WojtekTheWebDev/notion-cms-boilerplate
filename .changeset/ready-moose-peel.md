@@ -1,5 +1,5 @@
 ---
-"wojciech-sikora-dev": minor
+"notion-cms-boilerplate": minor
 ---
 
 - Official Notion SDK has been added to the Next boilerplate
