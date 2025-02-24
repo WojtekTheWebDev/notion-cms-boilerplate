@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NotionRenderer } from "../components/NotionRenderer";
+import { NotionRenderer } from "../components/molecules/NotionRenderer";
 import { getPageBlocks, getPageMeta } from "../../lib/notion";
 
 interface Props {
