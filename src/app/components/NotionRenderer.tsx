@@ -1,33 +1,23 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ListBlockChildrenResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { richTextToPlainText } from "../../lib/notion";
 
 interface NotionRendererProps {
-  page: ListBlockChildrenResponse;
+  blocks: BlockObjectResponse[];
 }
 
-type BlockType<T extends string> = {
-  [key in T]: {
-    rich_text: Array<{ plain_text: string }>;
-  };
-};
-
-export const NotionRenderer = ({ page }: NotionRendererProps) => {
-  if (!page || !page.results) return <p>No content available.</p>;
-
+export const NotionRenderer = ({ blocks }: NotionRendererProps) => {
   return (
     <div className="p-4 space-y-4">
-      {page.results.map((block) => {
+      {blocks.map((block) => {
         if (!("type" in block)) return null;
 
         const { id, type } = block;
-        const castedBlock = block as unknown as BlockType<typeof type>;
-        const content =
-          castedBlock[type]?.rich_text
-            .map((textObj: { plain_text: string }) => textObj.plain_text)
-            .join(" ") || "";
+        let content = "";
+        // let content = richTextToPlainText(block[type].rich_text);
 
         switch (type) {
           case "heading_1":
+            content = richTextToPlainText(block[type].rich_text);
             return (
               <h1 key={id} className="text-2xl font-bold">
                 {content}
@@ -35,6 +25,7 @@ export const NotionRenderer = ({ page }: NotionRendererProps) => {
             );
 
           case "heading_2":
+            content = richTextToPlainText(block[type].rich_text);
             return (
               <h2 key={id} className="text-2xl font-bold">
                 {content}
@@ -42,6 +33,7 @@ export const NotionRenderer = ({ page }: NotionRendererProps) => {
             );
 
           case "heading_3":
+            content = richTextToPlainText(block[type].rich_text);
             return (
               <h3 key={id} className="text-2xl font-bold">
                 {content}
@@ -49,6 +41,7 @@ export const NotionRenderer = ({ page }: NotionRendererProps) => {
             );
 
           case "paragraph":
+            content = richTextToPlainText(block[type].rich_text);
             return (
               <p key={id} className="text-base">
                 {content}
@@ -56,11 +49,21 @@ export const NotionRenderer = ({ page }: NotionRendererProps) => {
             );
 
           case "bulleted_list_item":
+            content = richTextToPlainText(block[type].rich_text);
             return (
               <li key={id} className="list-disc ml-6">
                 {content}
               </li>
             );
+
+          case "numbered_list_item":
+            content = richTextToPlainText(block[type].rich_text);
+            return (
+              <li key={id} className="list-decimal ml-6">
+                {content}
+              </li>
+            );
+
           default:
             return null;
         }
