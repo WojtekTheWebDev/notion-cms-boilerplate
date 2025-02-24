@@ -28,11 +28,8 @@ export default async function DynamicPage({ slug }: Props) {
   }
 
   return (
-    <div className="">
-      <main className="">
-        <NotionRenderer blocks={blocks} />
-      </main>
-      <footer className=""></footer>
-    </div>
+    <main>
+      <NotionRenderer blocks={blocks} />
+    </main>
   );
 }

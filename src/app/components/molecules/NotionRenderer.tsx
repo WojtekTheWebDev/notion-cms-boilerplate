@@ -13,7 +13,7 @@ interface NotionRendererProps {
 
 export const NotionRenderer = ({ blocks }: NotionRendererProps) => {
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-4">
       {blocks.map((block) => {
         if (!("type" in block)) return null;
 

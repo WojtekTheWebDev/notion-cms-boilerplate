@@ -1,5 +1,5 @@
 /* Import Inter font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,47 +7,67 @@
 
 :root {
   --background: #ffffff; /* Notion's white */
-  --foreground: #37352F; /* Notion's dark gray (not pure black) */
+  --foreground: #37352f; /* Notion's dark gray (not pure black) */
   --muted: #787774; /* Notion's muted gray */
-  --border: #DDDCDA; /* Notion's soft gray border */
-  --accent: #2F76D2; /* Notion's subtle blue */
+  --border: #dddcda; /* Notion's soft gray border */
+  --accent: #2f76d2; /* Notion's subtle blue */
   --heading-weight: 600;
   --body-weight: 400;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1E1E1E; /* Notion dark mode background */
-    --foreground: #FFFFFF; /* Notion dark mode text */
-    --muted: #A3A3A3; /* Lighter gray for contrast */
-    --border: #2F2F2F; /* Dark gray border */
-    --accent: #529CCA; /* Slightly softer blue in dark mode */
+    --background: #1e1e1e; /* Notion dark mode background */
+    --foreground: #ffffff; /* Notion dark mode text */
+    --muted: #a3a3a3; /* Lighter gray for contrast */
+    --border: #2f2f2f; /* Dark gray border */
+    --accent: #529cca; /* Slightly softer blue in dark mode */
   }
 }
 
 body {
   @apply bg-[var(--background)] text-[var(--foreground)];
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: var(--body-weight);
   line-height: 1.6;
   letter-spacing: 0.01em;
   font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--heading-weight);
   color: var(--foreground);
-  line-height: 1.3;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Headings Sizes */
-h1 { @apply text-4xl md:text-5xl; }
-h2 { @apply text-3xl md:text-4xl; }
-h3 { @apply text-2xl md:text-3xl; }
-h4 { @apply text-xl md:text-2xl; }
-h5 { @apply text-lg md:text-xl; }
-h6 { @apply text-base md:text-lg; }
+h1 {
+  @apply text-4xl md:text-5xl;
+}
+h2 {
+  @apply text-3xl md:text-4xl;
+}
+h3 {
+  @apply text-2xl md:text-3xl;
+}
+h4 {
+  @apply text-xl md:text-2xl;
+}
+h5 {
+  @apply text-lg md:text-xl;
+}
+h6 {
+  @apply text-base md:text-lg;
+}
 
 /* Links */
 a {
@@ -56,7 +76,7 @@ a {
 
 /* Paragraphs */
 p {
-  margin-bottom: 1rem;
+  margin: 0.5rem 0
 }
 
 /* Muted text */
@@ -70,25 +90,29 @@ p {
 }
 
 /* Lists */
-ul, ol {
-  padding-left: 1.25rem;
-}
-
 li {
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  margin-left: 1rem;
 }
 
 /* Code blocks */
 code {
   @apply bg-gray-100 dark:bg-gray-800 rounded px-2 py-1 text-sm;
   font-family: monospace;
+  margin: 0 0.2rem;
 }
 
-/* Buttons */
-button {
-  @apply px-4 py-2 rounded-lg text-white bg-[var(--foreground)] transition;
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-button:hover {
-  @apply opacity-80;
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 1rem 0.5rem;
+  }
 }

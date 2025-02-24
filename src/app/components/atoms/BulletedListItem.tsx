@@ -8,5 +8,5 @@ interface BulletedListItemProps {
 
 export function BulletedListItem({ rich_text }: BulletedListItemProps) {
   const content = richTextToPlainText(rich_text);
-  return <li className="list-disc ml-6">{content}</li>;
+  return <li className="list-disc">{content}</li>;
 }

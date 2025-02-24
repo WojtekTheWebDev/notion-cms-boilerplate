@@ -8,7 +8,7 @@ interface ParagraphProps {
 
 export function Paragraph({ rich_text }: ParagraphProps) {
   const content = richTextToPlainText(rich_text);
-  return <p className="text-base">{content}</p>;
+  return <p>{content}</p>;
 }
 
 export default Paragraph;

@@ -8,5 +8,5 @@ interface Heading1Props {
 
 export function Heading1({ rich_text }: Heading1Props) {
   const content = richTextToPlainText(rich_text);
-  return <h1 className="text-2xl font-bold">{content}</h1>;
+  return <h1>{content}</h1>;
 }

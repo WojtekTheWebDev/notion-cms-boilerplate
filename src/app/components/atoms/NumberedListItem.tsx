@@ -8,5 +8,5 @@ interface NumberedListItemProps {
 
 export function NumberedListItem({ rich_text }: NumberedListItemProps) {
   const content = richTextToPlainText(rich_text);
-  return <li className="list-decimal ml-6">{content}</li>;
+  return <li className="list-decimal">{content}</li>;
 }
