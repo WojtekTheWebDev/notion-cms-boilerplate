@@ -9,5 +9,3 @@ interface ParagraphProps {
 export function Paragraph({ richText }: ParagraphProps) {
   return <p>{renderRichText(richText)}</p>;
 }
-
-export default Paragraph;

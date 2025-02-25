@@ -84,6 +84,6 @@ export const getPageBlocks = async (
   const pageBlocks = await client.blocks.children.list({
     block_id: page.id,
   });
-  console.log(pageBlocks);
+
   return pageBlocks.results.filter((block) => "type" in block);
 };

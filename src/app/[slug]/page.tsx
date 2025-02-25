@@ -3,10 +3,11 @@ import { NotionRenderer } from "../components/molecules/NotionRenderer";
 import { getPageBlocks, getPageMeta } from "../../lib/notion";
 
 interface Props {
-  slug: string;
+  params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({ slug }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
   const meta = await getPageMeta(slug);
 
   if (!meta) {
@@ -20,7 +21,8 @@ export async function generateMetadata({ slug }: Props): Promise<Metadata> {
   };
 }
 
-export default async function DynamicPage({ slug }: Props) {
+export default async function DynamicPage({ params }: Props) {
+  const { slug } = await params;
   const blocks = await getPageBlocks(slug);
 
   if (!blocks) {

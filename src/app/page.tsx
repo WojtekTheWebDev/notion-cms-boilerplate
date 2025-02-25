@@ -19,5 +19,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function HomePage() {
-  return <DynamicPage slug={slug} />;
+  const params = Promise.resolve({ slug });
+  return <DynamicPage params={params} />;
 }
