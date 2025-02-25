@@ -58,27 +58,26 @@
 
 /* Body */
 body {
-  background-color: var(--notion-background);
-  color: var(--notion-default);
+  @apply bg-notion-background text-notion-default;
 }
 
 /* Content */
 .content {
+  @apply m-auto p-4;
   max-width: 1200px;
-  margin: auto;
-  padding: 1rem;
 }
 
 @media (max-width: 768px) {
   .content {
-    padding: 0.5rem;
+    @apply p-2;
   }
 }
 
 /* Headings */
-h1, h2, h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+h1,
+h2,
+h3 {
+  @apply mt-6 mb-4;
 }
 
 h1 {
@@ -95,18 +94,20 @@ h3 {
 
 /* Paragraphs */
 p {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
+  @apply my-1;
 }
 
 /* Lists */
 li {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  margin-left: 1rem;
+  @apply my-1 ml-4;
 }
 
 /* Code */
-code {
+.code {
   @apply bg-notion-bg-gray text-notion-red px-1.5 py-0.5 rounded-md font-mono text-sm;
+}
+
+/* Equations */
+.equation {
+  @apply font-serif text-xl tracking-widest;
 }

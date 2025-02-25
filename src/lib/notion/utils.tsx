@@ -9,14 +9,16 @@ export const richTextToPlainText = (
 
 export const renderRichText = (richText: RichTextItemResponse[]) => {
   return richText.map((textObj, index) => {
+    if (textObj.type === "equation") {
+      const key = `${textObj.equation.expression}-${index}`;
+      const expression = textObj.equation.expression;
+      return <span key={key} className="equation">{expression}</span>;
+    }
+
     const key = `${textObj.plain_text}-${index}`;
     const text = textObj.plain_text;
     const annotations = textObj.annotations;
     const classNames = [];
-
-    if (annotations.code) {
-      return <code key={key}>{text}</code>;
-    }
 
     if (annotations.bold) {
       classNames.push("font-bold");
@@ -32,6 +34,10 @@ export const renderRichText = (richText: RichTextItemResponse[]) => {
 
     if (annotations.underline) {
       classNames.push("underline");
+    }
+
+    if (annotations.code) {
+      classNames.push("code");
     }
 
     if (annotations.color) {
