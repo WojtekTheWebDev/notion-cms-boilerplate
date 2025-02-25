@@ -1,118 +1,62 @@
-/* Import Inter font from Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Light Theme */
 :root {
-  --background: #ffffff; /* Notion's white */
-  --foreground: #37352f; /* Notion's dark gray (not pure black) */
-  --muted: #787774; /* Notion's muted gray */
-  --border: #dddcda; /* Notion's soft gray border */
-  --accent: #2f76d2; /* Notion's subtle blue */
-  --heading-weight: 600;
-  --body-weight: 400;
+  --notion-default: #373530;
+  --notion-gray: #787774;
+  --notion-brown: #976D57;
+  --notion-orange: #CC782F;
+  --notion-yellow: #C29343;
+  --notion-green: #548164;
+  --notion-blue: #487CA5;
+  --notion-purple: #8A67AB;
+  --notion-pink: #B35488;
+  --notion-red: #C4554D;
+
+  --notion-bg-default: #FFFFFF;
+  --notion-bg-gray: #F1F1EF;
+  --notion-bg-brown: #F3EEEE;
+  --notion-bg-orange: #F8ECDF;
+  --notion-bg-yellow: #FAF3DD;
+  --notion-bg-green: #EEF3ED;
+  --notion-bg-blue: #E9F3F7;
+  --notion-bg-purple: #F6F3F8;
+  --notion-bg-pink: #F9F2F5;
+  --notion-bg-red: #FAECEC;
+
+  --notion-background: #FFFFFF;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1e1e1e; /* Notion dark mode background */
-    --foreground: #ffffff; /* Notion dark mode text */
-    --muted: #a3a3a3; /* Lighter gray for contrast */
-    --border: #2f2f2f; /* Dark gray border */
-    --accent: #529cca; /* Slightly softer blue in dark mode */
-  }
+/* Dark Theme */
+[data-theme="dark"] {
+  --notion-default: #D4D4D4;
+  --notion-gray: #9B9B9B;
+  --notion-brown: #A27763;
+  --notion-orange: #CB7B37;
+  --notion-yellow: #C19138;
+  --notion-green: #4F9768;
+  --notion-blue: #447ACB;
+  --notion-purple: #865DBB;
+  --notion-pink: #BA4A78;
+  --notion-red: #BE524B;
+
+  --notion-bg-default: #191919;
+  --notion-bg-gray: #252525;
+  --notion-bg-brown: #2E2724;
+  --notion-bg-orange: #36291F;
+  --notion-bg-yellow: #372E20;
+  --notion-bg-green: #242B26;
+  --notion-bg-blue: #1F282D;
+  --notion-bg-purple: #2A2430;
+  --notion-bg-pink: #2E2328;
+  --notion-bg-red: #332523;
+
+  --notion-background: #191919;
 }
 
 body {
-  @apply bg-[var(--background)] text-[var(--foreground)];
-  font-family: "Inter", sans-serif;
-  font-weight: var(--body-weight);
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
-}
-
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: var(--heading-weight);
-  color: var(--foreground);
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Headings Sizes */
-h1 {
-  @apply text-4xl md:text-5xl;
-}
-h2 {
-  @apply text-3xl md:text-4xl;
-}
-h3 {
-  @apply text-2xl md:text-3xl;
-}
-h4 {
-  @apply text-xl md:text-2xl;
-}
-h5 {
-  @apply text-lg md:text-xl;
-}
-h6 {
-  @apply text-base md:text-lg;
-}
-
-/* Links */
-a {
-  @apply text-[var(--accent)] hover:underline;
-}
-
-/* Paragraphs */
-p {
-  margin: 0.5rem 0
-}
-
-/* Muted text */
-.muted {
-  color: var(--muted);
-}
-
-/* Borders */
-.border {
-  border-color: var(--border);
-}
-
-/* Lists */
-li {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  margin-left: 1rem;
-}
-
-/* Code blocks */
-code {
-  @apply bg-gray-100 dark:bg-gray-800 rounded px-2 py-1 text-sm;
-  font-family: monospace;
-  margin: 0 0.2rem;
-}
-
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-@media (max-width: 768px) {
-  .container {
-    max-width: 100%;
-    padding: 1rem 0.5rem;
-  }
+  background-color: var(--notion-background);
+  color: var(--notion-default);
 }

@@ -21,25 +21,25 @@ export const NotionRenderer = ({ blocks }: NotionRendererProps) => {
 
         switch (type) {
           case "heading_1":
-            return <Heading1 key={id} rich_text={block.heading_1.rich_text} />;
+            return <Heading1 key={id} richText={block.heading_1.rich_text} />;
           case "heading_2":
-            return <Heading2 key={id} rich_text={block.heading_2.rich_text} />;
+            return <Heading2 key={id} richText={block.heading_2.rich_text} />;
           case "heading_3":
-            return <Heading3 key={id} rich_text={block.heading_3.rich_text} />;
+            return <Heading3 key={id} richText={block.heading_3.rich_text} />;
           case "paragraph":
-            return <Paragraph key={id} rich_text={block.paragraph.rich_text} />;
+            return <Paragraph key={id} richText={block.paragraph.rich_text} />;
           case "bulleted_list_item":
             return (
               <BulletedListItem
                 key={id}
-                rich_text={block.bulleted_list_item.rich_text}
+                richText={block.bulleted_list_item.rich_text}
               />
             );
           case "numbered_list_item":
             return (
               <NumberedListItem
                 key={id}
-                rich_text={block.numbered_list_item.rich_text}
+                richText={block.numbered_list_item.rich_text}
               />
             );
           default:
