@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NotionRenderer } from "../components/molecules/NotionRenderer";
-import { getPageBlocks, getPageMeta } from "../../lib/notion";
+import { getPageBlocks } from "@/lib/notion";
+import { getMetadata } from "@/lib/metadata";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -8,17 +9,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const meta = await getPageMeta(slug);
-
-  if (!meta) {
-    return {};
-  }
-
-  return {
-    title: meta.title,
-    description: meta.description,
-    keywords: meta.seoKeywords,
-  };
+  return getMetadata(slug);
 }
 
 export default async function DynamicPage({ params }: Props) {

@@ -3,7 +3,7 @@ import type {
   BlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import { Meta } from "./types";
-import { richTextToPlainText } from "./utils";
+import { getIconString, richTextToPlainText } from "./utils";
 import { getNotionClient } from "./client";
 import { getDatabase } from "./database";
 import { Client } from "@notionhq/client";
@@ -62,12 +62,15 @@ export const getPageMeta = async (slug: string): Promise<Meta | null> => {
     return null;
   }
 
+  const icon = getIconString(page.icon);
+
   return {
     title:
       getPropertyValue(page.properties, Properties.MetaTitle) ||
       getPropertyValue(page.properties, Properties.Name),
     description: getPropertyValue(page.properties, Properties.MetaDescription),
     seoKeywords: getPropertyValue(page.properties, Properties.SEOKeywords),
+    icon,
   };
 };
 
@@ -84,8 +87,6 @@ export const getPageBlocks = async (
   const pageBlocks = await client.blocks.children.list({
     block_id: page.id,
   });
-
-  console.log(pageBlocks);
 
   return pageBlocks.results.filter((block) => "type" in block);
 };

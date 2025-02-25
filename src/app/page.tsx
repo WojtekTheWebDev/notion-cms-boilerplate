@@ -1,21 +1,11 @@
-import DynamicPage from "@/app/[slug]/page";
-import { getPageMeta } from "@/lib/notion";
 import type { Metadata } from "next";
+import DynamicPage from "./[slug]/page";
+import { getMetadata } from "@/lib/metadata";
 
 const slug = "home";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const meta = await getPageMeta(slug);
-
-  if (!meta) {
-    return {};
-  }
-
-  return {
-    title: meta.title,
-    description: meta.description,
-    keywords: meta.seoKeywords,
-  };
+  return getMetadata(slug);
 }
 
 export default function HomePage() {

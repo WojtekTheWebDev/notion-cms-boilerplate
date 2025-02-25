@@ -1,5 +1,8 @@
 import React from "react";
-import { RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints";
+import {
+  PageObjectResponse,
+  RichTextItemResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 
 export const richTextToPlainText = (
   richText: RichTextItemResponse[]
@@ -12,11 +15,15 @@ export const renderRichText = (richText: RichTextItemResponse[]) => {
     if (textObj.type === "equation") {
       const key = `${textObj.equation.expression}-${index}`;
       const expression = textObj.equation.expression;
-      return <span key={key} className="equation">{expression}</span>;
+      return (
+        <span key={key} className="equation">
+          {expression}
+        </span>
+      );
     }
 
     if (textObj.type === "mention") {
-      console.error("Mentions are not supported yet");
+      console.warn("Mentions are not supported yet");
       return null;
     }
 
@@ -24,7 +31,11 @@ export const renderRichText = (richText: RichTextItemResponse[]) => {
       const key = `${textObj.href}-${index}`;
       const href = textObj.href;
       const text = textObj.plain_text;
-      return <a key={key} href={href}>{text}</a>
+      return (
+        <a key={key} href={href}>
+          {text}
+        </a>
+      );
     }
 
     const key = `${textObj.plain_text}-${index}`;
@@ -67,4 +78,19 @@ export const renderRichText = (richText: RichTextItemResponse[]) => {
       </span>
     );
   });
+};
+
+export const getIconString = (icon: PageObjectResponse["icon"]): string => {
+  if (!icon) return "";
+
+  switch (icon.type) {
+    case "emoji":
+      return icon.emoji;
+    case "external":
+      return icon.external.url;
+    case "file":
+      return icon.file.url;
+    default:
+      return "";
+  }
 };
