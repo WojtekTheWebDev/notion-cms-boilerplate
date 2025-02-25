@@ -7,5 +7,5 @@ interface NumberedListItemProps {
 }
 
 export function NumberedListItem({ richText }: NumberedListItemProps) {
-  return <li>{renderRichText(richText)}</li>;
+  return <li className="list-decimal">{renderRichText(richText)}</li>;
 }

@@ -7,5 +7,5 @@ interface BulletedListItemProps {
 }
 
 export function BulletedListItem({ richText }: BulletedListItemProps) {
-  return <li>{renderRichText(richText)}</li>;
+  return <li className="list-disc">{renderRichText(richText)}</li>;
 }

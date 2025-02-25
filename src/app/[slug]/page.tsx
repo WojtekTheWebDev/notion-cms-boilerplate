@@ -28,7 +28,7 @@ export default async function DynamicPage({ slug }: Props) {
   }
 
   return (
-    <main>
+    <main className="content">
       <NotionRenderer blocks={blocks} />
     </main>
   );
