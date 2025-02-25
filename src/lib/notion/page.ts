@@ -85,5 +85,7 @@ export const getPageBlocks = async (
     block_id: page.id,
   });
 
+  console.log(pageBlocks);
+
   return pageBlocks.results.filter((block) => "type" in block);
 };

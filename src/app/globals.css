@@ -111,3 +111,8 @@ li {
 .equation {
   @apply font-serif text-xl tracking-widest;
 }
+
+/* Links */
+a {
+  @apply text-notion-gray underline;
+}

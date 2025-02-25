@@ -15,6 +15,18 @@ export const renderRichText = (richText: RichTextItemResponse[]) => {
       return <span key={key} className="equation">{expression}</span>;
     }
 
+    if (textObj.type === "mention") {
+      console.error("Mentions are not supported yet");
+      return null;
+    }
+
+    if (textObj.href) {
+      const key = `${textObj.href}-${index}`;
+      const href = textObj.href;
+      const text = textObj.plain_text;
+      return <a key={key} href={href}>{text}</a>
+    }
+
     const key = `${textObj.plain_text}-${index}`;
     const text = textObj.plain_text;
     const annotations = textObj.annotations;
