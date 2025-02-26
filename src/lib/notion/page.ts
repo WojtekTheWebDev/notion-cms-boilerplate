@@ -2,7 +2,7 @@ import type {
   PageObjectResponse,
   BlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
-import { Meta } from "./types";
+import { Meta, PageNavigation } from "./types";
 import { getIconString, richTextToPlainText } from "./utils";
 import { getNotionClient } from "./client";
 import { getDatabase } from "./database";
@@ -52,6 +52,22 @@ const getPageBySlug = async (
   }
 
   return page;
+};
+
+export const getPageNavigation = async (): Promise<PageNavigation[]> => {
+  const client = getNotionClient();
+  const database = await getDatabase(client);
+
+  return database.results
+    .filter((page) => {
+      return page.object === "page" && "properties" in page;
+    })
+    .map((page) => {
+      const title = getPropertyValue(page.properties, Properties.Slug);
+      const slug = getPropertyValue(page.properties, Properties.Slug);
+
+      return { title, slug };
+    });
 };
 
 export const getPageMeta = async (slug: string): Promise<Meta | null> => {

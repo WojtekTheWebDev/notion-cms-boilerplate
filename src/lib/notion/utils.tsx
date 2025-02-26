@@ -32,7 +32,7 @@ export const renderRichText = (richText: RichTextItemResponse[]) => {
       const href = textObj.href;
       const text = textObj.plain_text;
       return (
-        <a key={key} href={href}>
+        <a key={key} href={href} target="_blank">
           {text}
         </a>
       );

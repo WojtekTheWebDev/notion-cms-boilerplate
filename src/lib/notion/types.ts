@@ -11,3 +11,8 @@ export interface PageResponse {
   meta: Meta;
   blocks: BlockObjectResponse[];
 }
+
+export interface PageNavigation {
+  title: string;
+  slug: string;
+}

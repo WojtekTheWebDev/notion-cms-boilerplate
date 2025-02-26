@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import DynamicPage from "./[slug]/page";
+import { homeSlug } from "./constants";
 import { getMetadata } from "@/lib/metadata";
 
-const slug = "home";
-
 export async function generateMetadata(): Promise<Metadata> {
-  return getMetadata(slug);
+  return getMetadata(homeSlug);
 }
 
 export default function HomePage() {
-  const params = Promise.resolve({ slug });
+  const params = Promise.resolve({ slug: homeSlug });
   return <DynamicPage params={params} />;
 }

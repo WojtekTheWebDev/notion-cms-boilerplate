@@ -102,6 +102,10 @@ li {
   @apply my-1 ml-4;
 }
 
+.todo-list-item {
+  @apply flex items-center my-1
+}
+
 /* Code */
 .code {
   @apply bg-notion-bg-gray text-notion-red px-1.5 py-0.5 rounded-md font-mono text-sm;

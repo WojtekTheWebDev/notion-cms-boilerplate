@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { NotionRenderer } from "../components/molecules/NotionRenderer";
 import { getPageBlocks } from "@/lib/notion";
 import { getMetadata } from "@/lib/metadata";
@@ -17,7 +18,7 @@ export default async function DynamicPage({ params }: Props) {
   const blocks = await getPageBlocks(slug);
 
   if (!blocks) {
-    return <div>Page not found</div>;
+    return notFound();
   }
 
   return (

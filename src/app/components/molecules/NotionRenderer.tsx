@@ -6,6 +6,7 @@ import { Heading3 } from "../atoms/Heading3";
 import { Paragraph } from "../atoms/Paragraph";
 import { BulletedListItem } from "../atoms/BulletedListItem";
 import { NumberedListItem } from "../atoms/NumberedListItem";
+import { TodoListItem } from "../atoms/TodoListItem";
 
 interface NotionRendererProps {
   blocks: BlockObjectResponse[];
@@ -40,6 +41,14 @@ export const NotionRenderer = ({ blocks }: NotionRendererProps) => {
               <NumberedListItem
                 key={id}
                 richText={block.numbered_list_item.rich_text}
+              />
+            );
+          case "to_do":
+            return (
+              <TodoListItem
+                key={id}
+                richText={block.to_do.rich_text}
+                checked={block.to_do.checked}
               />
             );
           default:
