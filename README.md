@@ -16,6 +16,10 @@ I had tons of fun playing with their API to render components and show everythin
 
 I hope it can be helpful to someone.
 
+### Demo
+
+You can check the demo [here](https://notion-cms-boilerplate.vercel.app/).
+
 ### TLDR
 
 To implement this project, you would need to duplicate [Notion database](https://tinyurl.com/mpearp29) to your workspace, create a new [Notion integration](https://developers.notion.com/docs/create-a-notion-integration) to get an API key, clone the [notion-cms-boilerplate repository](https://github.com/WojtekTheWebDev/notion-cms-boilerplate), configure the environment variables with your Notion credentials, and deploy the Next.js application to your preferred hosting platform.
