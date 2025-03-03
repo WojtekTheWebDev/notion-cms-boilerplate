@@ -1,3 +1,3 @@
 export * from "./page";
 export * from "./types";
-export * from "./utils";
+export * from "./richText";

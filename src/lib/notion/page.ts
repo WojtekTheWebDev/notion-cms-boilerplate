@@ -3,12 +3,12 @@ import type {
   BlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import { Meta } from "./types";
-import { getIconString, richTextToPlainText } from "./utils";
+import { getIconString, richTextToPlainText } from "./richText";
 import { getNotionClient } from "./client";
 import { getDatabase } from "./database";
 import { Client } from "@notionhq/client";
 
-enum Properties {
+export enum PageProperties {
   Name = "Name",
   Slug = "Slug",
   MetaTitle = "Meta title",
@@ -16,9 +16,9 @@ enum Properties {
   SEOKeywords = "SEO keywords",
 }
 
-const getPropertyValue = (
+export const getPropertyValue = (
   properties: PageObjectResponse["properties"],
-  property: Properties
+  property: PageProperties
 ): string => {
   const propertyValue = properties[property];
 
@@ -43,7 +43,7 @@ const getPageBySlug = async (
     if (!("properties" in page)) return false;
     if (page.object !== "page") return false;
 
-    const pageSlug = getPropertyValue(page.properties, Properties.Slug);
+    const pageSlug = getPropertyValue(page.properties, PageProperties.Slug);
     return pageSlug === slug;
   });
 
@@ -66,10 +66,13 @@ export const getPageMeta = async (slug: string): Promise<Meta | null> => {
 
   return {
     title:
-      getPropertyValue(page.properties, Properties.MetaTitle) ||
-      getPropertyValue(page.properties, Properties.Name),
-    description: getPropertyValue(page.properties, Properties.MetaDescription),
-    seoKeywords: getPropertyValue(page.properties, Properties.SEOKeywords),
+      getPropertyValue(page.properties, PageProperties.MetaTitle) ||
+      getPropertyValue(page.properties, PageProperties.Name),
+    description: getPropertyValue(
+      page.properties,
+      PageProperties.MetaDescription
+    ),
+    seoKeywords: getPropertyValue(page.properties, PageProperties.SEOKeywords),
     icon,
   };
 };

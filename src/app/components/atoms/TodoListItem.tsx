@@ -1,6 +1,6 @@
 import React from "react";
 import type { RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints";
-import { renderRichText } from "@/lib/notion/utils";
+import { renderRichText } from "@/lib/notion/richText";
 
 interface TodoListItemProps {
   richText: RichTextItemResponse[];
