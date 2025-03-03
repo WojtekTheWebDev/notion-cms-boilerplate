@@ -7,6 +7,7 @@ import { Paragraph } from "../atoms/Paragraph";
 import { BulletedListItem } from "../atoms/BulletedListItem";
 import { NumberedListItem } from "../atoms/NumberedListItem";
 import { TodoListItem } from "../atoms/TodoListItem";
+import { ImageWithCaption } from "../atoms/ImageWithCaption";
 
 interface NotionRendererProps {
   blocks: BlockObjectResponse[];
@@ -51,6 +52,8 @@ export const NotionRenderer = ({ blocks }: NotionRendererProps) => {
                 checked={block.to_do.checked}
               />
             );
+          case "image":
+            return <ImageWithCaption key={id} image={block.image} />;
           default:
             return null;
         }
