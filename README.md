@@ -67,7 +67,7 @@ The whole project is based on a Next.js app. The easiest way to deploy it is to 
 
 Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## How Tos
+## How-tos
 
 ### Setting Up Image Ratio
 
