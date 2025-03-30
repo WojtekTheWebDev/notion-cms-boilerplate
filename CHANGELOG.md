@@ -1,5 +1,15 @@
 # notion-cms-boilerplate
 
+## 0.3.0
+
+### Minor Changes
+
+- 258d977: Node 22 support.
+
+### Patch Changes
+
+- Update next version
+
 ## 0.2.0
 
 ### Minor Changes

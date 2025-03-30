@@ -1,6 +1,6 @@
 {
   "name": "notion-cms-boilerplate",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.16",
-    "next": "15.1.7",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@notionhq/client": "^2.3.0",
+    "next": "^15.2.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
