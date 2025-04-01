@@ -70,6 +70,10 @@ const renderLink = (textObj: RichTextItemResponse, index: number) => {
 };
 
 export const renderRichText = async (richText: RichTextItemResponse[]) => {
+  if (!richText || richText.length === 0) {
+    return <>&nbsp;</>;
+  }
+
   return await Promise.all(
     richText.map(async (textObj, index) => {
       if (textObj.type === "equation") {
