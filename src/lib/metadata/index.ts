@@ -15,5 +15,6 @@ export const getMetadata = async (slug: string): Promise<Metadata> => {
     icons: {
       icon: meta.icon || "/favicon.ico",
     },
+    generator: "WojtekTheWebDev/notion-cms-boilerplate"
   };
 };
