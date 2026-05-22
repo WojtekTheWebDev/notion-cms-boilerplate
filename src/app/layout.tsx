@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
 import "./globals.css";
-import { metaGenerator } from "./constants";
+import { metaGenerator } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   generator: metaGenerator,
