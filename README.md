@@ -1,4 +1,4 @@
-# notion-cms-boilerplate project
+# notion-as-a-cms project
 
 ## Getting started
 
@@ -18,11 +18,11 @@ I hope it can be helpful to someone.
 
 ### Demo
 
-You can check the demo [here](https://notion-cms-boilerplate.vercel.app/).
+You can check the demo [here](https://notion-as-a-cms.vercel.app/).
 
 ### TLDR
 
-To implement this project, you would need to duplicate [Notion database](https://tinyurl.com/mpearp29) to your workspace, create a new [Notion integration](https://developers.notion.com/docs/create-a-notion-integration) to get an API key, clone the [notion-cms-boilerplate repository](https://github.com/WojtekTheWebDev/notion-cms-boilerplate), configure the environment variables with your Notion credentials, and deploy the Next.js application to your preferred hosting platform.
+To implement this project, you would need to duplicate [Notion database](https://tinyurl.com/mpearp29) to your workspace, create a new [Notion integration](https://developers.notion.com/docs/create-a-notion-integration) to get an API key, clone the [notion-as-a-cms repository](https://github.com/WojtekTheWebDev/notion-as-a-cms), configure the environment variables with your Notion credentials, and deploy the Next.js application to your preferred hosting platform.
 
 ### Database
 
@@ -53,7 +53,7 @@ After creating an integration, give the permissions (as the [guide](https://deve
 
 ### Project
 
-To start, simply use this [template](https://github.com/WojtekTheWebDev/notion-cms-boilerplate) to create a new GitHub repository and clone it.
+To start, simply use this [template](https://github.com/WojtekTheWebDev/notion-as-a-cms) to create a new GitHub repository and clone it.
 
 Then, copy the *.env.example* and rename it to *.env*. Use your **Internal Integration Secret** and **Database ID** (from previous steps) as `NOTION_SECRET` and `NOTION_DATABASE_ID`.
 

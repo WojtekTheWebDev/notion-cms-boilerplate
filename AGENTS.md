@@ -4,7 +4,7 @@ Guidance for coding agents working in this repository. Read this first; it captu
 
 ## What this project is
 
-`notion-cms-boilerplate` is a Next.js 15 (App Router, Turbopack) site that uses a Notion database as its CMS. Pages are not authored in code — they live as rows in a Notion database, fetched at request time via the official `@notionhq/client`, and rendered to React using a small block-to-component dispatcher.
+`notion-as-a-cms` is a Next.js 15 (App Router, Turbopack) site that uses a Notion database as its CMS. Pages are not authored in code — they live as rows in a Notion database, fetched at request time via the official `@notionhq/client`, and rendered to React using a small block-to-component dispatcher.
 
 Stack: Next.js 15 · React 19 · TypeScript (strict) · Tailwind CSS 3 · `@notionhq/client` v2.
 

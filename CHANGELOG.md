@@ -1,4 +1,4 @@
-# notion-cms-boilerplate
+# notion-as-a-cms
 
 ## 0.3.1
 
