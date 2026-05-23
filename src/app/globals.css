@@ -1,6 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-notion-default: var(--notion-default);
+  --color-notion-gray: var(--notion-gray);
+  --color-notion-brown: var(--notion-brown);
+  --color-notion-orange: var(--notion-orange);
+  --color-notion-yellow: var(--notion-yellow);
+  --color-notion-green: var(--notion-green);
+  --color-notion-blue: var(--notion-blue);
+  --color-notion-purple: var(--notion-purple);
+  --color-notion-pink: var(--notion-pink);
+  --color-notion-red: var(--notion-red);
+
+  --color-notion-bg-default: var(--notion-bg-default);
+  --color-notion-bg-gray: var(--notion-bg-gray);
+  --color-notion-bg-brown: var(--notion-bg-brown);
+  --color-notion-bg-orange: var(--notion-bg-orange);
+  --color-notion-bg-yellow: var(--notion-bg-yellow);
+  --color-notion-bg-green: var(--notion-bg-green);
+  --color-notion-bg-blue: var(--notion-bg-blue);
+  --color-notion-bg-purple: var(--notion-bg-purple);
+  --color-notion-bg-pink: var(--notion-bg-pink);
+  --color-notion-bg-red: var(--notion-bg-red);
+
+  --color-notion-background: var(--notion-background);
+}
+
+/* renderRichText emits these dynamically per Notion annotation color, so Tailwind can't
+   detect them by scanning source. */
+@source inline("{bg,text}-notion-{default,gray,brown,orange,yellow,green,blue,purple,pink,red}");
 
 /* Light Theme */
 :root {
