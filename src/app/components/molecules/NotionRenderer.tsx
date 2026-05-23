@@ -1,5 +1,5 @@
 import React from "react";
-import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { BlockObjectResponse } from "@notionhq/client";
 import { Heading1 } from "../atoms/Heading1";
 import { Heading2 } from "../atoms/Heading2";
 import { Heading3 } from "../atoms/Heading3";

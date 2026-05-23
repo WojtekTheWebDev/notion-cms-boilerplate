@@ -1,12 +1,8 @@
-import type {
-  PageObjectResponse,
-  BlockObjectResponse,
-} from "@notionhq/client/build/src/api-endpoints";
+import { Client, type PageObjectResponse, type BlockObjectResponse } from "@notionhq/client";
 import { Meta } from "./types";
 import { getIconString, richTextToPlainText } from "./richText";
 import { getNotionClient } from "./client";
 import { getDatabase } from "./database";
-import { Client } from "@notionhq/client";
 
 export enum PageProperties {
   Name = "Name",

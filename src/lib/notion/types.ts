@@ -1,4 +1,4 @@
-import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { BlockObjectResponse } from "@notionhq/client";
 
 export interface Meta {
   title?: string;

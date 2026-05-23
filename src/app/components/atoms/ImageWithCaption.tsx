@@ -1,5 +1,5 @@
 import NextImage from "next/image";
-import type { ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { ImageBlockObjectResponse } from "@notionhq/client";
 import { richTextToPlainText } from "@/lib/notion";
 import { defaultHeight, defaultWidth } from "@/app/constants";
 

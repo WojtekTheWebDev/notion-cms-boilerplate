@@ -1,8 +1,8 @@
 import React from "react";
-import {
+import type {
   PageObjectResponse,
   RichTextItemResponse,
-} from "@notionhq/client/build/src/api-endpoints";
+} from "@notionhq/client";
 import { getNotionClient } from "./client";
 import { getPropertyValue, PageProperties } from "./page";
 

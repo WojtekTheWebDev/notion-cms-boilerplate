@@ -6,7 +6,7 @@ Guidance for coding agents working in this repository. Read this first; it captu
 
 `notion-as-a-cms` is a Next.js 15 (App Router, Turbopack) site that uses a Notion database as its CMS. Pages are not authored in code — they live as rows in a Notion database, fetched at request time via the official `@notionhq/client`, and rendered to React using a small block-to-component dispatcher.
 
-Stack: Next.js 15 · React 19 · TypeScript (strict) · Tailwind CSS 3 · `@notionhq/client` v2.
+Stack: Next.js 15 · React 19 · TypeScript (strict) · Tailwind CSS 3 · `@notionhq/client` v5 (Notion API `2025-09-03`).
 
 ## Coding principles
 
@@ -50,7 +50,7 @@ This is the single most important flow in the codebase. Trace it before changing
 1. Request hits `src/app/[slug]/page.tsx` (or `src/app/page.tsx` for `/`, which delegates to `DynamicPage` with `slug = homeSlug = "home"` from `src/app/constants.ts:2`).
 2. `getPageBlocks(slug)` is called (`src/lib/notion/page.ts:80`):
    - `getNotionClient()` creates a `Client` with `NOTION_SECRET` (`src/lib/notion/client.ts`).
-   - `getDatabase(client)` runs `client.databases.query({ database_id })` (`src/lib/notion/database.ts`). Returns the full DB query result — **no pagination, no filter, no sort**.
+   - `getDatabase(client)` calls `client.databases.retrieve({ database_id })` to resolve the database's first data source, then runs `client.dataSources.query({ data_source_id })` against it (`src/lib/notion/database.ts`). Returns the full data-source query result — **no pagination, no filter, no sort**. Two API calls per request.
    - `getPageBySlug` linearly scans `database.results` and finds the row whose `Slug` property equals the requested slug (string compare).
    - `client.blocks.children.list({ block_id: page.id })` fetches top-level blocks. **No recursion** into nested children.
 3. If `blocks` is `null`, the route calls `notFound()` → renders `src/app/not-found.tsx` → `NotFoundPage` organism.
@@ -91,7 +91,8 @@ Renaming or removing any of these in Notion breaks pages — `getPropertyValue` 
 
 ## Known limitations / gotchas
 
-- **No pagination.** `getDatabase` returns the first page of results (≤100 rows) — `client.databases.query` is not iterated. Same for `blocks.children.list`. A database with >100 published pages will silently drop entries.
+- **No pagination.** `getDatabase` returns the first page of results (≤100 rows) — `client.dataSources.query` is not iterated. Same for `blocks.children.list`. A database with >100 published pages will silently drop entries.
+- **First data source only.** `getDatabase` picks `database.data_sources[0]`. Multi-data-source databases (Notion API ≥ `2025-09-03`) will silently ignore the rest.
 - **No caching.** Each request triggers a full DB query plus a blocks fetch. There is no `unstable_cache`, `revalidate`, or ISR config — every nav is a live Notion API call. If you're asked to add caching, this is where.
 - **No nested blocks.** `getPageBlocks` lists one level. Toggle children, nested list items, callout bodies, column children, etc. won't render even if you add the atom.
 - **`richTextToPlainText` joins spans with `" "`** (`src/lib/notion/richText.tsx:11-13`). That means `**Hello**, world` round-trips with a stray space. It's used for property values and image captions — fine for SEO meta, surprising elsewhere.
