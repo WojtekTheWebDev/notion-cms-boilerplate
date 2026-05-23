@@ -1,0 +1,5 @@
+---
+"notion-as-a-cms": minor
+---
+
+Upgrade Next.js from 15.5 to 16.2 (and `eslint-config-next` to the matching 16.x). The `next lint` command is removed in 16, so `npm run lint` now invokes `eslint .` directly and `eslint.config.mjs` imports `eslint-config-next/core-web-vitals` and `eslint-config-next/typescript` instead of routing through `FlatCompat` — `@eslint/eslintrc` is no longer a direct devDependency. Turbopack is the default in `next dev`, so the `--turbopack` flag is dropped from the `dev` script. `tsconfig.json` is updated for Next 16: `jsx` is set to `react-jsx` (the automatic runtime is mandatory) and `.next/dev/types/**/*.ts` is added to `include`. The async dynamic API enforcement in Next 16 was already satisfied by the existing `Promise<{ slug: string }>` typing in `src/app/[slug]/page.tsx`, so no route handlers changed. Two transitive `postcss <8.5.10` advisories nested under `next` remain (next 9.3.4-canary → 16.3.0-canary.5); they will only clear in a future Next 16.3 release.

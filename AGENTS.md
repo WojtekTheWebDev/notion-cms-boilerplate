@@ -4,9 +4,9 @@ Guidance for coding agents working in this repository. Read this first; it captu
 
 ## What this project is
 
-`notion-as-a-cms` is a Next.js 15 (App Router, Turbopack) site that uses a Notion database as its CMS. Pages are not authored in code — they live as rows in a Notion database, fetched at request time via the official `@notionhq/client`, and rendered to React using a small block-to-component dispatcher.
+`notion-as-a-cms` is a Next.js 16 (App Router, Turbopack) site that uses a Notion database as its CMS. Pages are not authored in code — they live as rows in a Notion database, fetched at request time via the official `@notionhq/client`, and rendered to React using a small block-to-component dispatcher.
 
-Stack: Next.js 15 · React 19 · TypeScript (strict) · Tailwind CSS 3 · `@notionhq/client` v5 (Notion API `2025-09-03`).
+Stack: Next.js 16 · React 19 · TypeScript (strict) · Tailwind CSS 3 · `@notionhq/client` v5 (Notion API `2025-09-03`).
 
 ## Coding principles
 
@@ -25,10 +25,10 @@ The ones that come up most often in this codebase:
 ## Commands
 
 ```bash
-npm run dev      # next dev --turbopack
+npm run dev      # next dev (Turbopack is the default in Next 16)
 npm run build    # next build
 npm run start    # next start (after build)
-npm run lint     # next lint (ESLint flat config, next/core-web-vitals + next/typescript)
+npm run lint     # eslint . (ESLint flat config, next/core-web-vitals + next/typescript)
 ```
 
 There is no test suite. Validation = `npm run lint` + `npm run build` + manual verification in the browser against a real Notion DB.
