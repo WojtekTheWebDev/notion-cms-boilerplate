@@ -1,0 +1,26 @@
+{
+  "skill_name": "generate-changeset",
+  "evals": [
+    {
+      "id": 1,
+      "name": "patch-bug-fix-external-link-rel",
+      "prompt": "I've made a fix in this repo. Please add a changeset describing the change. The repo is at FIXTURE_PATH.",
+      "expected_output": "A `.changeset/<slug>.md` file with `\"notion-as-a-cms\": patch` frontmatter and a one-paragraph message explaining that external links now include `rel=\"noopener noreferrer\"` to fix the security issue. The slug should reference noopener/rel/external-link. No code example needed (mechanical 1-line fix).",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "minor-feature-divider-atom",
+      "prompt": "Please add a changeset for the changes I just made in this repo. The repo is at FIXTURE_PATH.",
+      "expected_output": "A `.changeset/<slug>.md` file with `\"notion-as-a-cms\": minor` frontmatter and a message describing the new Divider atom and that it adds rendering support for Notion's `divider` block type via NotionRenderer. Slug should reference divider/block/atom.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "major-breaking-rename-meta-title-property",
+      "prompt": "Generate a changeset for the changes in FIXTURE_PATH.",
+      "expected_output": "A `.changeset/<slug>.md` file with `\"notion-as-a-cms\": major` frontmatter, a message that explicitly calls out the BREAKING change (the Notion DB column renamed from `Meta title` to `SEO title`) and includes a code example or before/after mapping so consumers of the boilerplate know what they need to rename in their Notion DB.",
+      "files": []
+    }
+  ]
+}
