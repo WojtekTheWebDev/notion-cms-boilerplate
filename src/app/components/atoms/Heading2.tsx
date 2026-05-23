@@ -1,6 +1,6 @@
 import React from "react";
 import { renderRichText } from "@/lib/notion";
-import type { RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { RichTextItemResponse } from "@notionhq/client";
 
 interface Heading2Props {
   richText: RichTextItemResponse[];
